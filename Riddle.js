@@ -14,65 +14,8 @@ function seed() {
   return pebbles;
 }
 
-function riddle(p) {
-  console.log("Solution:");
-  const step1 = comparator(p, [0, 1, 2, 3], [4, 5, 6, 7]);
-  if (step1 > 0) {
-    const step2 = comparator(p, [0, 2, 4], [1, 3, 5]);
-    if (step2 > 0) {
-      const step3 = comparator(p, [0], [2]);
-      if (step3 > 0) console.log("The pebble at index 0 weighs more");
-      else if (step3 < 0) console.log("The pebble at index 2 weighs more");
-      else if (step3 === 0) console.log("The pebble at index 5 weighs less");
-    } else if (step2 < 0) {
-      const step3 = comparator(p, [1], [3]);
-      if (step3 > 0) console.log("The pebble at index 1 weighs more");
-      else if (step3 < 0) console.log("The pebble at index 3 weighs more");
-      else if (step3 === 0) console.log("The pebble at index 4 weighs less");
-    } else if (step2 === 0) {
-      const step3 = comparator(p, [6], [7]);
-      if (step3 > 0) console.log("The pebble at index 7 weighs less");
-      else if (step3 < 0) console.log("The pebble at index 6 weighs less");
-    }
-  } else if (step1 < 0) {
-    const step2 = comparator(p, [0, 2, 4], [1, 3, 5]);
-    if (step2 < 0) {
-      const step3 = comparator(p, [0], [2]);
-      if (step3 > 0) console.log("The pebble at index 2 weighs less");
-      else if (step3 < 0) console.log("The pebble at index 0 weighs less");
-      else if (step3 === 0) console.log("The pebble at index 5 weighs more");
-    } else if (step2 > 0) {
-      const step3 = comparator(p, [1], [3]);
-      if (step3 > 0) console.log("The pebble at index 3 weighs less");
-      else if (step3 < 0) console.log("The pebble at index 1 weighs less");
-      else if (step3 === 0) console.log("The pebble at index 4 weighs more");
-    } else if (step2 === 0) {
-      const step3 = comparator(p, [6], [7]);
-      if (step3 > 0) console.log("The pebble at index 6 weighs more");
-      else if (step3 < 0) console.log("The pebble at index 7 weighs more");
-    }
-  } else if (step1 === 0) {
-    const step2 = comparator(p, [8, 9, 10], [0, 1, 2]);
-    if (step2 > 0) {
-      const step3 = comparator(p, [8], [9]);
-      if (step3 > 0) console.log("The pebble at index 8 weighs more");
-      else if (step3 < 0) console.log("The pebble at index 9 weighs more");
-      else if (step3 === 0) console.log("The pebble at index 10 weighs more");
-    } else if (step2 < 0) {
-      const step3 = comparator(p, [8], [9]);
-      if (step3 > 0) console.log("The pebble at index 9 weighs less");
-      else if (step3 < 0) console.log("The pebble at index 8 weighs less");
-      else if (step3 === 0) console.log("The pebble at index 10 weighs less");
-    } else if (step2 === 0) {
-      const step3 = comparator(p, [11], [0]);
-      if (step3 > 0) console.log("The pebble at index 11 weighs more");
-      else if (step3 < 0) console.log("The pebble at index 11 weighs less");
-    }
-  }
-}
-
 function riddleStep1(p) {
-  console.log('****************\nStep 1:')
+  console.log("****************\nStep 1:");
   const step1 = comparator(p, [0, 1, 2, 3], [4, 5, 6, 7]);
   if (step1 > 0) riddleStep2a(p);
   else if (step1 < 0) riddleStep2b(p);
@@ -80,109 +23,111 @@ function riddleStep1(p) {
 }
 
 function riddleStep2a(p) {
-  console.log('****************\nStep 2:')
+  console.log("****************\nStep 2:");
   const step2 = comparator(p, [0, 2, 4], [1, 3, 5]);
-  if (step2 > 0) riddleStep3aa(p)
-  else if (step2 < 0) riddleStep3ab(p)
-  else if (step2 === 0) riddleStep3ac(p)
+  if (step2 > 0) riddleStep3aa(p);
+  else if (step2 < 0) riddleStep3ab(p);
+  else if (step2 === 0) riddleStep3ac(p);
 }
 
 function riddleStep3aa(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [0], [2]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 0 weighs more");
   else if (step3 < 0) console.log("The pebble at index 2 weighs more");
   else if (step3 === 0) console.log("The pebble at index 5 weighs less");
 }
 
 function riddleStep3ab(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [1], [3]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 1 weighs more");
   else if (step3 < 0) console.log("The pebble at index 3 weighs more");
   else if (step3 === 0) console.log("The pebble at index 4 weighs less");
 }
 
 function riddleStep3ac(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [6], [7]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 7 weighs less");
   else if (step3 < 0) console.log("The pebble at index 6 weighs less");
 }
 
 function riddleStep2b(p) {
-  console.log('****************\nStep 2:')
+  console.log("****************\nStep 2:");
   const step2 = comparator(p, [0, 2, 4], [1, 3, 5]);
-  if (step2 < 0) riddleStep3ba(p)
-  else if (step2 > 0) riddleStep3bb(p)
-  else if (step2 === 0) riddleStep3bc(p)
+  if (step2 < 0) riddleStep3ba(p);
+  else if (step2 > 0) riddleStep3bb(p);
+  else if (step2 === 0) riddleStep3bc(p);
 }
 
 function riddleStep3ba(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [0], [2]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 2 weighs less");
   else if (step3 < 0) console.log("The pebble at index 0 weighs less");
   else if (step3 === 0) console.log("The pebble at index 5 weighs more");
 }
 
 function riddleStep3bb(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [1], [3]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 3 weighs less");
   else if (step3 < 0) console.log("The pebble at index 1 weighs less");
   else if (step3 === 0) console.log("The pebble at index 4 weighs more");
 }
 
 function riddleStep3bc(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [6], [7]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 6 weighs more");
   else if (step3 < 0) console.log("The pebble at index 7 weighs more");
 }
 
 function riddleStep2c(p) {
-  console.log('****************\nStep 2:')
+  console.log("****************\nStep 2:");
   const step2 = comparator(p, [8, 9, 10], [0, 1, 2]);
-  if (step2 > 0) riddleStep3ca(p)
-  else if (step2 < 0) riddleStep3cb(p)
-  else if (step2 === 0) riddleStep3cc(p)
+  if (step2 > 0) riddleStep3ca(p);
+  else if (step2 < 0) riddleStep3cb(p);
+  else if (step2 === 0) riddleStep3cc(p);
 }
 
 function riddleStep3ca(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [8], [9]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 8 weighs more");
   else if (step3 < 0) console.log("The pebble at index 9 weighs more");
   else if (step3 === 0) console.log("The pebble at index 10 weighs more");
 }
 
 function riddleStep3cb(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [8], [9]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 9 weighs less");
   else if (step3 < 0) console.log("The pebble at index 8 weighs less");
   else if (step3 === 0) console.log("The pebble at index 10 weighs less");
 }
 
 function riddleStep3cc(p) {
-  console.log('****************\nStep 3:')
+  console.log("****************\nStep 3:");
   const step3 = comparator(p, [11], [0]);
-  console.log('****************\nSolution:');
+  console.log("****************\nSolution:");
   if (step3 > 0) console.log("The pebble at index 11 weighs more");
   else if (step3 < 0) console.log("The pebble at index 11 weighs less");
 }
 
 function comparator(p, l, r) {
-  console.log(`Weighing pebble(s) at indices ${l} against pebble(s) at indices ${r}`);
+  console.log(
+    `Weighing pebble(s) at indices ${l} against pebble(s) at indices ${r}`
+  );
   let left = 0;
   l.forEach(function(n) {
     left += p[n];
@@ -191,7 +136,7 @@ function comparator(p, l, r) {
   r.forEach(function(n) {
     right += p[n];
   });
-  console.log('Result:')
+  console.log("Result:");
   if (left > right) {
     console.log(`Pebble(s) at ${l} weigh more than pebble(s) at ${r}`);
     return 1;
