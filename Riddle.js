@@ -125,8 +125,14 @@ function riddleStep3cc(p) {
 }
 
 function comparator(p, l, r) {
+  let s = ''
+  let pl = 's'
+  if (l.length > 1) {
+    s = 's';
+    pl = ''
+  }
   console.log(
-    `Weighing pebble(s) at indices ${l} against pebble(s) at indices ${r}`
+    `Weighing pebble${s} at ind${l.length > 1 ? 'ices' : 'ex'} ${l} against pebble${s} at ind${l.length > 1 ? 'ices' : 'ex'} ${r}`
   );
   let left = 0;
   l.forEach(function(n) {
@@ -138,13 +144,13 @@ function comparator(p, l, r) {
   });
   console.log("Result:");
   if (left > right) {
-    console.log(`Pebble(s) at ${l} weigh more than pebble(s) at ${r}`);
+    console.log(`Pebble${s} at ${l} weigh${pl} more than pebble${s} at ${r}`);
     return 1;
   } else if (right > left) {
-    console.log(`Pebble(s) at ${r} weigh more than pebble(s) at ${l}`);
+    console.log(`Pebble${s} at ${r} weigh${pl} more than pebble${s} at ${l}`);
     return -1;
   } else {
-    console.log(`Pebble(s) at ${l} and ${r} weigh the same`);
+    console.log(`Pebble${s} at ${l} and ${r} weigh the same`);
     return 0;
   }
 }
