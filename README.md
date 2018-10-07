@@ -1,3 +1,5 @@
+(Run the code and see output in console.)
+
 This code demonstrates the solution to the following riddle:
 
 **************
